@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LeetCode Hint Genie</title>
+    <style>
+        :root {
+            --primary: #f89f1b;
+            --bg: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text: #e0e0e0;
+            --text-muted: #a0a0a0;
+        }
+        
+        body {
+            width: 350px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #444;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        
+        button {
+            background: var(--primary);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .content {
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+            padding: 12px;
+            min-height: 60px;
+            font-size: 13px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: var(--text);
+            margin-top: 8px;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(0,0,0,0.3);
+            border-radius: 50%;
+            border-top-color: #000;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            color: #ff6b6b;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .success {
+            color: #51cf66;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>LeetCode Hint Genie</h2>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>Hint</h3>
+                <button id="getHint">
+                    <span class="button-text">Get Hint</span>
+                    <span class="button-icon">🔍</span>
+                </button>
+            </div>
+            <div id="hint" class="content">Click the button to get a hint for the current problem</div>
+            <div id="hintStatus" class="status"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Solution</h3>
+                <button id="getSolution">
+                    <span class="button-text">Get Solution</span>
+                    <span class="button-icon">🧠</span>
+                </button>
+            </div>
+            <div id="solution" class="content">Click the button to view the solution</div>
+            <div id="solutionStatus" class="status"></div>
+        </div>
+    </div>
+    <script src="popup.js" type="module"></script>
+</body>
+</html>

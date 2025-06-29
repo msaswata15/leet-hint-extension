@@ -1,0 +1,48 @@
+{
+    "manifest_version": 3,
+    "name": "LeetCode Hint Genie",
+    "version": "1.0",
+    "description": "Get hints and solutions for LeetCode problems",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "contextMenus",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://leetcode.com/*",
+        "http://localhost:8000/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://leetcode.com/problems/*"],
+            "js": ["content.js"],
+            "run_at": "document_end",
+            "all_frames": true,
+            "match_about_blank": true,
+            "world": "MAIN"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["icon.png", "debug.js"],
+            "matches": ["https://leetcode.com/*"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+}
