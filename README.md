@@ -83,7 +83,11 @@ const url = `https://your-render-url.onrender.com${endpoint}`;
 ## 🎨 UI Showcase
 
 ### Main Interface
-![Main Interface](https://via.placeholder.com/400x600/1a1a1a/ffffff?text=LeetCode+Hint+Genie)
+![image](https://github.com/user-attachments/assets/49212aa4-528a-4efe-a0de-3f2c05c61900)
+![image](https://github.com/user-attachments/assets/a8c1ee8d-5535-4b19-9b0b-20966feeac89)
+![image](https://github.com/user-attachments/assets/0159c44f-b364-431a-88a2-d47ce32fe6f1)
+
+
 - Clean, modern design with glassmorphism effect
 - Clear separation between hints and solutions
 - Loading states and error handling
