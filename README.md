@@ -1,53 +1,127 @@
-# LeetCode Hint Extension
+# LeetCode Hint Genie 🧞
 
-A Chrome extension that provides AI-powered hints and solutions for LeetCode problems directly in your browser. This extension helps you learn and solve coding challenges more effectively by providing contextual assistance when you need it most.
+![LeetCode Hint Genie Banner](https://img.shields.io/badge/LeetCode-Hint%20Genie-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)
 
-## 🌟 Features
+A sleek, AI-powered Chrome extension that provides instant hints and solutions for LeetCode problems. Designed with a modern UI and seamless integration, it helps you learn and solve coding challenges more effectively.
+
+## ✨ Features
+
+### 🎨 Modern & Intuitive UI
+- **Beautiful Glassmorphism Design** - Clean, modern interface with smooth animations
+- **Responsive Layout** - Works perfectly on all screen sizes
+- **Dark Theme** - Easy on the eyes during long coding sessions
 
 ### 🎯 Smart Problem Detection
-- Automatically detects the current LeetCode problem you're viewing
-- Extracts problem title and description with high accuracy
-- Works with dynamic content loading on LeetCode pages
-
-### 🤖 AI-Powered Assistance
-- **Hints**: Get subtle nudges in the right direction without spoiling the solution
-- **Solutions**: Access detailed explanations when you're truly stuck
-- **Context-Aware**: Responses are tailored to the specific problem you're solving
-
-### 🚀 Seamless Integration
-- One-click access from your browser toolbar
-- Clean, non-intrusive interface
+- Automatically detects the current LeetCode problem
+- Extracts problem details with high accuracy
 - Works with both free and premium LeetCode problems
 
-### 🛠️ Developer Friendly
-- Detailed debug logging for troubleshooting
-- CORS pre-configured for local development
-- Easy-to-extend architecture
+### 🤖 AI-Powered Assistance
+- **Smart Hints** - Get subtle nudges in the right direction
+- **Complete Solutions** - Detailed, step-by-step explanations
+- **Context-Aware** - Responses tailored to each problem
 
-## 🛠️ Installation
+### 🚀 One-Click Access
+- Instant access from your browser toolbar
+- Non-intrusive interface that stays out of your way
+- Keyboard shortcuts for power users
 
-### Prerequisites
-- Google Chrome or any Chromium-based browser
-- Python 3.7+ for the backend server
-- Node.js and npm (for development)
+## 🚀 Quick Start
 
-### Backend Setup
-1. Navigate to the backend directory:
+### Option 1: Local Installation (Development)
+
+#### Backend Setup
+1. Clone the repository:
    ```bash
-   cd backend
+   git clone https://github.com/yourusername/leet-hint-extension.git
+   cd leet-hint-extension/backend
    ```
-2. Install Python dependencies:
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: .\venv\Scripts\activate
+   ```
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-3. Set up your Google Gemini API key in `main.py`
-4. Start the backend server:
+4. Create a `.env` file:
+   ```env
+   GOOGLE_GEMINI_API_KEY=your_api_key_here
+   PORT=8000
+   ```
+5. Start the backend server:
    ```bash
    python -m uvicorn main:app --reload
    ```
 
-### Extension Installation
+#### Extension Installation
 1. Open Chrome and go to `chrome://extensions/`
+2. Enable "Developer mode" (toggle in top-right)
+3. Click "Load unpacked" and select the `extension` folder
+4. Pin the extension to your toolbar for easy access
+
+### Option 2: Production Deployment
+
+#### Backend Deployment (Render)
+1. Push your code to a GitHub repository
+2. Create a new Web Service on [Render](https://render.com/)
+3. Connect your GitHub repository
+4. Configure the service:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port=$PORT`
+5. Add environment variables:
+   - `GOOGLE_GEMINI_API_KEY`: Your Google Gemini API key
+   - `PYTHON_VERSION`: 3.9.0
+
+#### Update Extension Configuration
+Update the API URL in `extension/popup.js`:
+```javascript
+const url = `https://your-render-url.onrender.com${endpoint}`;
+```
+
+## 🎨 UI Showcase
+
+### Main Interface
+![Main Interface](https://via.placeholder.com/400x600/1a1a1a/ffffff?text=LeetCode+Hint+Genie)
+- Clean, modern design with glassmorphism effect
+- Clear separation between hints and solutions
+- Loading states and error handling
+
+## 🔧 Troubleshooting
+
+### Common Issues
+1. **Extension not loading**
+   - Ensure you've loaded the unpacked extension correctly
+   - Check the browser console for errors (right-click extension > Inspect)
+
+2. **API connection issues**
+   - Verify the backend server is running
+   - Check CORS settings if accessing from a different domain
+   - Ensure your API key is valid and has sufficient quota
+
+3. **Problem detection not working**
+   - Refresh the LeetCode page
+   - Make sure you're on a problem page (e.g., https://leetcode.com/problems/two-sum/)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add some amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ using FastAPI and Gemini AI
+- Inspired by the LeetCode community
+- Icons by [Tabler Icons](https://tabler-icons.io/)
 2. Enable "Developer mode" (toggle in top-right corner)
 3. Click "Load unpacked" and select the `extension` directory
 4. Pin the extension to your toolbar for easy access
