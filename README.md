@@ -28,7 +28,19 @@ A sleek, AI-powered Chrome extension that provides instant hints and solutions f
 
 ## 🚀 Quick Start
 
-### Option 1: Local Installation (Development)
+### Option 1: Manual Installation (While in Review)
+
+1. Download the latest release from our [GitHub repository](https://github.com/yourusername/leet-hint-extension/releases)
+2. Extract the downloaded ZIP file to a location on your computer
+3. Open Microsoft Edge or Google Chrome and go to `edge://extensions/`
+4. Enable "Developer mode" (toggle in the bottom-left corner)
+5. Click "Load unpacked" and select the extracted `extension` folder
+6. Pin the extension to your toolbar for easy access
+7. Navigate to any LeetCode problem and click the extension icon to use it
+
+> **Note:** The extension requires an active internet connection to communicate with our backend service.
+
+### Option 2: Local Development Installation
 
 #### Backend Setup
 1. Clone the repository:
