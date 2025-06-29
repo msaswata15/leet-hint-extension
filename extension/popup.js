@@ -638,9 +638,33 @@ async function fetchFromAPI(type, retryCount = 2) {
     }
 }
 
+// Track if popup was opened automatically
+let isAutoOpened = window.opener && window.opener !== window;
+
 // Initialize popup
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('Popup initialized');
+    console.log('Popup initialized', { isAutoOpened });
+    
+    // Add a close button for auto-opened popups
+    if (isAutoOpened) {
+        const header = document.querySelector('.header');
+        if (header) {
+            const closeBtn = document.createElement('button');
+            closeBtn.textContent = '×';
+            closeBtn.style.cssText = `
+                background: none;
+                border: none;
+                color: var(--text-muted);
+                font-size: 24px;
+                cursor: pointer;
+                margin-left: auto;
+                padding: 0 8px;
+                line-height: 1;
+            `;
+            closeBtn.onclick = () => window.close();
+            header.appendChild(closeBtn);
+        }
+    }
     
     const hintElement = document.getElementById('hint');
     const solutionElement = document.getElementById('solution');

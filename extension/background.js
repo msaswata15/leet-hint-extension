@@ -32,6 +32,22 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 
 // Listen for messages from content script or popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    // Handle page loaded notification
+    if (request.action === 'pageLoaded') {
+        // Store the current tab ID for the popup
+        if (sender.tab) {
+            // Open the popup
+            chrome.windows.create({
+                url: chrome.runtime.getURL('popup.html'),
+                type: 'popup',
+                width: 400,
+                height: 600,
+                top: 100,
+                left: screen.width - 450
+            });
+        }
+        return true;
+    }
     debug.info('Message received in background:', { action: request.action, sender });
     
     if (request.action === 'testContentScript') {

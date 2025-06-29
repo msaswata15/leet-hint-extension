@@ -461,6 +461,11 @@ function setupExtraction() {
 logInjectionPoint();
 setupExtraction();
 
+// Notify background script that LeetCode page has loaded
+if (window.location.hostname.includes('leetcode.com')) {
+    chrome.runtime.sendMessage({ action: 'pageLoaded' });
+}
+
 // Also try to extract when URL changes (for SPA navigation)
 let lastUrl = location.href;
 const observer = new MutationObserver(() => {

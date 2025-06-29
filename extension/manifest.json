@@ -8,7 +8,8 @@
         "storage",
         "contextMenus",
         "scripting",
-        "tabs"
+        "tabs",
+        "windows"
     ],
     "host_permissions": [
         "https://leetcode.com/*",
@@ -34,7 +35,7 @@
     ],
     "web_accessible_resources": [
         {
-            "resources": ["icon.png", "debug.js"],
+            "resources": ["popup.html", "icon.png", "debug.js"],
             "matches": ["https://leetcode.com/*"]
         }
     ],
