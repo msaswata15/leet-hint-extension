@@ -430,7 +430,7 @@ async function fetchFromAPI(type, retryCount = 2) {
         
         // Prepare API request
         const endpoint = type === 'hint' ? '/hint' : '/solution';
-        const url = `http://localhost:8000${endpoint}`;
+        const url = `https://leet-hint-extension.onrender.com${endpoint}`;
         const requestBody = {
             title: title,
             desc: description.substring(0, 10000), // Match backend's expected field name 'desc'
@@ -593,7 +593,7 @@ async function fetchFromAPI(type, retryCount = 2) {
         
         // Add more context for common errors
         if (error.message.includes('Failed to fetch')) {
-            userMessage = 'Could not connect to the server. Please make sure the backend server is running at http://localhost:8000';
+            userMessage = 'Could not connect to the server. Please make sure the backend server is running at https://leet-hint-extension.onrender.com';
             errorDetails = {
                 message: 'Network request failed',
                 suggestion: '1. Make sure the server is running\n2. Check your internet connection\n3. Verify CORS settings on the server',
