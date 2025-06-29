@@ -1,16 +1,38 @@
+import os
+from dotenv import load_dotenv
 import google.generativeai as genai
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-import os
-GOOGLE_GEMINI_API_KEY = "AIzaSyDlXz3d2pMsrPpDvOfbgmdNTCBdSBAzXVQ"
 
-# Configure Gemini
-genai.configure(api_key=GOOGLE_GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-2.0-flash")
+# Load environment variables
+load_dotenv()
+
+# Get API key from environment variables
+GOOGLE_GEMINI_API_KEY = os.getenv("GOOGLE_GEMINI_API_KEY")
+
+if not GOOGLE_GEMINI_API_KEY:
+    raise ValueError("GOOGLE_GEMINI_API_KEY environment variable not set")
+
+try:
+    # Configure Gemini
+    genai.configure(api_key=GOOGLE_GEMINI_API_KEY)
+    model = genai.GenerativeModel("gemini-2.0-flash")
+except Exception as e:
+    print(f"Error initializing Gemini: {str(e)}")
+    raise
 
 # FastAPI app
-app = FastAPI()
+app = FastAPI(
+    title="LeetCode Hint Generator API",
+    description="API for generating hints and solutions for LeetCode problems",
+    version="1.0.0"
+)
+
+# Health check endpoint
+@app.get("/")
+async def health_check():
+    return {"status": "healthy", "service": "leetcode-hint-backend"}
 
 # Allow frontend access with more specific CORS settings
 app.add_middleware(

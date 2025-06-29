@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: leetcode-hint-backend
+    plan: free  # Free tier
+    region: oregon  # Choose the closest region to your users
+    runtime: python3
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port=$PORT
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: GOOGLE_GEMINI_API_KEY
+        sync: false  # This will be set in the Render dashboard
+    healthCheckPath: /docs  # FastAPI's auto-generated docs endpoint
