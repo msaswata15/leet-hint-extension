@@ -30,7 +30,7 @@ A sleek, AI-powered Chrome extension that provides instant hints and solutions f
 
 ### Option 1: Manual Installation (While in Review)
 
-1. Download the latest release from our [GitHub repository](https://github.com/yourusername/leet-hint-extension/releases)
+1. Download the latest release from our [GitHub repository](https://github.com/msaswata15/leet-hint-extension/releases)
 2. Extract the downloaded ZIP file to a location on your computer
 3. Open Microsoft Edge or Google Chrome and go to `edge://extensions/`
 4. Enable "Developer mode" (toggle in the bottom-left corner)
@@ -45,7 +45,7 @@ A sleek, AI-powered Chrome extension that provides instant hints and solutions f
 #### Backend Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/leet-hint-extension.git
+   git clone https://github.com/msaswata15/leet-hint-extension.git
    cd leet-hint-extension/backend
    ```
 2. Create and activate a virtual environment:
