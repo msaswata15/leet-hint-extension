@@ -19,7 +19,7 @@ A sleek, AI-powered Chrome extension that provides instant hints and solutions f
 ### 🤖 AI-Powered Assistance
 - **Smart Hints** - Get subtle nudges in the right direction
 - **Complete Solutions** - Detailed, step-by-step explanations
-- **Context-Aware** - Responses tailored to each problem
+- **Context-Aware** - Responses tailored to each problem.
 
 ### 🚀 One-Click Access
 - Instant access from your browser toolbar
